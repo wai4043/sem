@@ -6,5 +6,6 @@ services:
   - docker
 
 after_success:
+  - docker network create --driver nat se-methods
   - docker build -t se_methods .
-  - docker run se_methods
+  - docker run --network se-methods se_methods
